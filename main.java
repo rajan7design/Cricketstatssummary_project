@@ -7,7 +7,7 @@ public class Main {
 
         while (true) {
 
-            System.out.println("\n--- Cricket Stats CLI ---");
+            System.out.println("\n--- Cricket Stats Summary ---");
             System.out.println("1. Add Batsman");
             System.out.println("2. Add Bowler");
             System.out.println("3. Show All Batsmen");
