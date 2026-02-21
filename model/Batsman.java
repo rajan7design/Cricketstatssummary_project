@@ -1,43 +1,47 @@
 package model;
 
-public class Batsman  {
+public class Batsman {
 
+    private String name;
+    private String nationality;
+    private int age;
     private int runs;
     private int balls;
-    private int outs;
+    private int innings;
 
-    public Batsman(String name, int runs, int balls, int outs) {
-        super(name);
+    public Batsman(String name, String nationality, int age,
+                   int runs, int balls, int innings) {
+
+        this.name = name;
+        this.nationality = nationality;
+        this.age = age;
         this.runs = runs;
         this.balls = balls;
-        this.outs = outs;
+        this.innings = innings;
     }
 
     public double getStrikeRate() {
         if (balls == 0) {
             return 0;
-        } else {
-            return (runs * 100.0) / balls;
         }
+        return (runs * 100.0) / balls;
     }
 
     public double getAverage() {
-        if (outs == 0) {
-            return runs;
-        } else {
-            return (runs * 1.0) / outs;
+        if (innings == 0) {
+            return 0;
         }
+        return runs / (double) innings;
     }
 
-    public int getRuns() {
-        return runs;
-    }
+    
+    public String toString() {
 
-    public int getBalls() {
-        return balls;
-    }
-
-    public int getOuts() {
-        return outs;
+        return "Name: " + name +
+                "\nNationality: " + nationality +
+                "\nAge: " + age +
+                "\nRuns: " + runs +
+                "\nStrike Rate: " + getStrikeRate() +
+                "\nAverage: " + getAverage();
     }
 }
