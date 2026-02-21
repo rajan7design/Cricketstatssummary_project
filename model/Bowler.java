@@ -1,42 +1,44 @@
-ackage model;
+package model;
 
-public class Bowler{
+public class Bowler {
+
+    private String name;
+    private String nationality;
+    private int age;
+    private int wickets;
     private int runsConceded;
     private double overs;
-    private int wickets;
 
-    public Bowler(String name, int runsConceded, double overs, int wickets) {
-        super(name);
+    public Bowler(String name, String nationality, int age,
+                  int wickets, int runsConceded, double overs) {
+
+        this.name = name;
+        this.nationality = nationality;
+        this.age = age;
+        this.wickets = wickets;
         this.runsConceded = runsConceded;
         this.overs = overs;
-        this.wickets = wickets;
     }
 
     public double getEconomy() {
-        if (overs == 0) {
-            return 0;
-        } else {
-            return runsConceded / overs;
-        }
+        if (overs == 0) return 0;
+        return runsConceded / overs;
     }
 
     public double getAverage() {
-        if (wickets == 0) {
-            return runsConceded;
-        } else {
-            return (runsConceded * 1.0) / wickets;
-        }
+        if (wickets == 0) return 0;
+        return runsConceded / (double) wickets;
     }
 
-    public int getRunsConceded() {
-        return runsConceded;
-    }
+    public String toString() {
 
-    public double getOvers() {
-        return overs;
-    }
-
-    public int getWickets() {
-        return wickets;
+        return "Name: " + name +
+                "\nNationality: " + nationality +
+                "\nAge: " + age +
+                "\nWickets: " + wickets +
+                "\nRuns Conceded: " + runsConceded +
+                "\nOvers: " + overs +
+                "\nEconomy Rate: " + getEconomy() +
+                "\nBowling Average: " + getAverage();
     }
 }
