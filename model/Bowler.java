@@ -1,44 +1,60 @@
-package model;
 
-public class Bowler {
 
-    private String name;
-    private String nationality;
-    private int age;
-    private int wickets;
-    private int runsConceded;
-    private double overs;
+import model.Bowler;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
 
-    public Bowler(String name, String nationality, int age,
-                  int wickets, int runsConceded, double overs) {
+public class BowlerManager {
 
-        this.name = name;
-        this.nationality = nationality;
-        this.age = age;
-        this.wickets = wickets;
-        this.runsConceded = runsConceded;
-        this.overs = overs;
-    }
+    public static void main(String[] args) {
 
-    public double getEconomy() {
-        if (overs == 0) return 0;
-        return runsConceded / overs;
-    }
+        List<Bowler> bowlerRoster = new ArrayList<>();
+        Scanner input = new Scanner(System.in);
+        boolean choice = true;
 
-    public double getAverage() {
-        if (wickets == 0) return 0;
-        return runsConceded / (double) wickets;
-    }
+        while (choice) {
+            System.out.println("Enter the name:");
+            String name = input.nextLine();
 
-    public String toString() {
+            System.out.println("Enter nationality:");
+            String nationality = input.nextLine();
 
-        return "Name: " + name +
-                "\nNationality: " + nationality +
-                "\nAge: " + age +
-                "\nWickets: " + wickets +
-                "\nRuns Conceded: " + runsConceded +
-                "\nOvers: " + overs +
-                "\nEconomy Rate: " + getEconomy() +
-                "\nBowling Average: " + getAverage();
+            System.out.println("Enter age:");
+            int age = input.nextInt();
+
+            System.out.println("Enter wickets taken:");
+            int wickets = input.nextInt();
+
+            System.out.println("Enter runs conceded:");
+            int runsConceded = input.nextInt();
+
+            System.out.println("Enter overs bowled:");
+            double overs = input.nextDouble();
+            input.nextLine();
+            
+            bowlerRoster.add(new Bowler(name, nationality, age, wickets, runsConceded, overs));
+
+            System.out.println("Do you want to continue adding? (y/n)");
+            char c = input.next().charAt(0);
+            input.nextLine(); 
+            
+            if (c == 'n' || c == 'N') {
+                choice = false;
+            }
+        }
+
+        System.out.println("\nCurrent Bowlers Roster:");
+        for (Bowler bowler : bowlerRoster) {
+            System.out.println(bowler);
+            System.out.println();
+        }
+
+        if (!bowlerRoster.isEmpty()) {
+            Bowler firstBowler = bowlerRoster.get(0);
+            System.out.println("First bowler's name: " + firstBowler.getName());
+        }
+
+        input.close();
     }
 }
