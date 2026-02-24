@@ -24,7 +24,7 @@ public class BatsmanManager {
 
             System.out.println("Do you want to continue adding? (y/n)");
             char c = input.next().charAt(0);
-            input.nextLine(); // consume newline
+            input.nextLine(); 
 
             if (c == 'n' || c == 'N') {
                 choice = false;
