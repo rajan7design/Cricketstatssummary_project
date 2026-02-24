@@ -1,5 +1,6 @@
-package arrayList;
 
+
+import model.Batsman;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -13,14 +14,23 @@ public class BatsmanManager {
         boolean choice = true;
 
         while (choice) {
-
             System.out.println("Enter the name:");
             String name = input.nextLine();
 
-            System.out.println("Enter your nationality:");
+            System.out.println("Enter nationality:");
             String nationality = input.nextLine();
 
-            batsmanRoster.add(new Batsman(name, nationality));
+            System.out.println("Enter age:");
+            int age = input.nextInt();
+
+            System.out.println("Enter total runs:");
+            int runs = input.nextInt();
+
+            System.out.println("Enter total matches:");
+            int matches = input.nextInt();
+            input.nextLine();
+            
+            batsmanRoster.add(new Batsman(name, nationality, age, runs, matches));
 
             System.out.println("Do you want to continue adding? (y/n)");
             char c = input.next().charAt(0);
@@ -31,15 +41,15 @@ public class BatsmanManager {
             }
         }
 
-        System.out.println("\nCurrent Roster:");
-
+        System.out.println("\nCurrent Batsmen Roster:");
         for (Batsman batsman : batsmanRoster) {
             System.out.println(batsman);
+            System.out.println();
         }
 
         if (!batsmanRoster.isEmpty()) {
             Batsman firstBatsman = batsmanRoster.get(0);
-            System.out.println("\nFirst batsman's name: " + firstBatsman.getName());
+            System.out.println("First batsman's name: " + firstBatsman.getName());
         }
 
         input.close();
