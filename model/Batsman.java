@@ -1,47 +1,47 @@
-package model;
+package arrayList;
 
-public class Batsman {
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
 
-    private String name;
-    private String nationality;
-    private int age;
-    private int runs;
-    private int balls;
-    private int innings;
+public class BatsmanManager {
 
-    public Batsman(String name, String nationality, int age,
-                   int runs, int balls, int innings) {
+    public static void main(String[] args) {
 
-        this.name = name;
-        this.nationality = nationality;
-        this.age = age;
-        this.runs = runs;
-        this.balls = balls;
-        this.innings = innings;
-    }
+        List<Batsman> batsmanRoster = new ArrayList<>();
+        Scanner input = new Scanner(System.in);
+        boolean choice = true;
 
-    public double getStrikeRate() {
-        if (balls == 0) {
-            return 0;
+        while (choice) {
+
+            System.out.println("Enter the name:");
+            String name = input.nextLine();
+
+            System.out.println("Enter your nationality:");
+            String nationality = input.nextLine();
+
+            batsmanRoster.add(new Batsman(name, average, nationality));
+
+            System.out.println("Do you want to continue adding? (y/n)");
+            char c = input.next().charAt(0);
+            input.nextLine(); // consume newline
+
+            if (c == 'n' || c == 'N') {
+                choice = false;
+            }
         }
-        return (runs * 100.0) / balls;
-    }
 
-    public double getAverage() {
-        if (innings == 0) {
-            return 0;
+        System.out.println("\nCurrent Roster:");
+
+        for (Batsman batsman : batsmanRoster) {
+            System.out.println(batsman);
         }
-        return runs / (double) innings;
-    }
 
-    
-    public String toString() {
+        if (!batsmanRoster.isEmpty()) {
+            Batsman firstBatsman = batsmanRoster.get(0);
+            System.out.println("\nFirst batsman's name: " + firstBatsman.getName());
+        }
 
-        return "Name: " + name +
-                "\nNationality: " + nationality +
-                "\nAge: " + age +
-                "\nRuns: " + runs +
-                "\nStrike Rate: " + getStrikeRate() +
-                "\nAverage: " + getAverage();
+        input.close();
     }
 }
