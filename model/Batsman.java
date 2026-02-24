@@ -20,7 +20,7 @@ public class BatsmanManager {
             System.out.println("Enter your nationality:");
             String nationality = input.nextLine();
 
-            batsmanRoster.add(new Batsman(name, average, nationality));
+            batsmanRoster.add(new Batsman(name, nationality));
 
             System.out.println("Do you want to continue adding? (y/n)");
             char c = input.next().charAt(0);
