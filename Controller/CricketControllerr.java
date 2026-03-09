@@ -18,7 +18,7 @@ public class CricketControllerr {
             System.out.println("\n--- Cricket Stats Summary ---");
             System.out.println("1. Add Batsman");
             System.out.println("2. Add Bowler");
-            System.out.println("3. Show All Players");
+            System.out.println("3. Show Players");
             System.out.println("4. Exit");
 
             System.out.print("Choose option: ");
@@ -71,9 +71,10 @@ public class CricketControllerr {
         sc.nextLine();
 
         Batsman b = new Batsman(name, nationality, age, runs, balls, innings);
+
         dao.savePlayer(b.toFileString());
 
-        System.out.println("Batsman saved to file!");
+        System.out.println("Batsman saved!");
     }
 
     private void addBowler() {
@@ -98,8 +99,9 @@ public class CricketControllerr {
         sc.nextLine();
 
         Bowler b = new Bowler(name, nationality, age, wickets, runs, overs);
+
         dao.savePlayer(b.toFileString());
 
-        System.out.println("Bowler saved to file!");
+        System.out.println("Bowler saved!");
     }
 }
