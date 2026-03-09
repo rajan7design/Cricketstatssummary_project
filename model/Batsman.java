@@ -1,47 +1,43 @@
-
-
 package model;
 
 public class Batsman {
+
     private String name;
     private String nationality;
     private int age;
-    private int totalRuns;
-    private int totalMatches;
-    private int ballsFaced;
+    private int runs;
+    private int balls;
+    private int innings;
 
-    public Batsman(String name, String nationality, int age, int totalRuns, int totalMatches, int ballsFaced) {
+    public Batsman(String name, String nationality, int age,
+                   int runs, int balls, int innings) {
+
         this.name = name;
         this.nationality = nationality;
         this.age = age;
-        this.totalRuns = totalRuns;
-        this.totalMatches = totalMatches;
-        this.ballsFaced = ballsFaced;
+        this.runs = runs;
+        this.balls = balls;
+        this.innings = innings;
     }
 
-    public String getName() {
-        return name;
+    public double getStrikeRate() {
+
+        if (balls == 0) return 0;
+
+        return (runs * 100.0) / balls;
     }
 
-    public double calculateAverage() {
-        if (totalMatches == 0) return 0;
-        return (double) totalRuns / totalMatches;
+    public double getAverage() {
+
+        if (innings == 0) return 0;
+
+        return (double) runs / innings;
     }
 
-    public double calculateStrikeRate() {
-        if (ballsFaced == 0) return 0;
-        return ((double) totalRuns / ballsFaced) * 100;
-    }
+    public String toFileString() {
 
-    
-    public String toString() {
-        return "Name: " + name +
-               "\nNationality: " + nationality +
-               "\nAge: " + age +
-               "\nTotal Runs: " + totalRuns +
-               "\nMatches: " + totalMatches +
-               "\nBalls Faced: " + ballsFaced +
-               "\nBatting Average: " + calculateAverage() +
-               "\nStrike Rate: " + calculateStrikeRate();
+        return "BATSMAN," + name + "," + nationality + "," + age +
+                "," + runs + "," + balls + "," + innings +
+                "," + getStrikeRate() + "," + getAverage();
     }
 }
