@@ -1,6 +1,6 @@
 package controller;
 
-import dao.CricketDAO;
+import dao.PlayerDAO;
 import model.Batsman;
 import model.Bowler;
 
