@@ -3,35 +3,43 @@
 package model;
 
 public class Bowler {
-    private String name;
-    private int runsConceded;
-    private int wickets;
-    private double oversBowled;
 
-    public Bowler(String name, int runsConceded, int wickets, double oversBowled) {
+    private String name;
+    private String nationality;
+    private int age;
+    private int wickets;
+    private int runsConceded;
+    private double overs;
+
+    public Bowler(String name, String nationality, int age,
+                  int wickets, int runsConceded, double overs) {
+
         this.name = name;
-        this.runsConceded = runsConceded;
+        this.nationality = nationality;
+        this.age = age;
         this.wickets = wickets;
-        this.oversBowled = oversBowled;
+        this.runsConceded = runsConceded;
+        this.overs = overs;
     }
 
-    public double calculateBowlingAverage() {
+    public double getEconomy() {
+
+        if (overs == 0) return 0;
+
+        return runsConceded / overs;
+    }
+
+    public double getAverage() {
+
         if (wickets == 0) return 0;
+
         return (double) runsConceded / wickets;
     }
 
-    public double calculateEconomy() {
-        if (oversBowled == 0) return 0;
-        return runsConceded / oversBowled;
-    }
+    public String toFileString() {
 
-    @Override
-    public String toString() {
-        return "Name: " + name +
-               "\nRuns Conceded: " + runsConceded +
-               "\nWickets: " + wickets +
-               "\nOvers Bowled: " + oversBowled +
-               "\nBowling Average: " + calculateBowlingAverage() +
-               "\nEconomy Rate: " + calculateEconomy();
+        return "BOWLER," + name + "," + nationality + "," + age +
+                "," + wickets + "," + runsConceded + "," + overs +
+                "," + getEconomy() + "," + getAverage();
     }
 }
