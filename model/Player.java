@@ -1,13 +1,15 @@
 package model;
 
 public class Player {
+
     protected String name;
+    protected String nationality;
+    protected int age;
 
-    public Player(String name) {
+    public Player(String name, String nationality, int age) {
+
         this.name = name;
-    }
-
-    public String getName() {
-        return name;
+        this.nationality = nationality;
+        this.age = age;
     }
 }
