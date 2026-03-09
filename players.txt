@@ -1,1 +1,4 @@
+BATSMAN,Kushal Bhurtel,Nepal,24,150,120,4,125.0,37.5
+BOWLER,Sandeep Lamichhane,Nepal,25,6,40,4.0,10.0,6.67
+BATSMAN,Dipendra Singh Airee,Nepal,26,110,95,3,115.79,36.67
 
