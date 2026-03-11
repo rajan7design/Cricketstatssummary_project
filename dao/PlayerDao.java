@@ -3,7 +3,7 @@ package dao;
 import util.FileUtil;
 import java.util.List;
 
-public class PlayerDAO {
+public class PlayerDao {
 
     private final String FILE = "players.txt";
 
@@ -28,3 +28,4 @@ public class PlayerDAO {
         }
     }
 }
+
