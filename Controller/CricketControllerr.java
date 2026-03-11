@@ -1,6 +1,5 @@
-package controller;
-
-import dao.PlayerDAO;
+package Controller;
+import dao.PlayerDao;
 import model.Batsman;
 import model.Bowler;
 
@@ -8,7 +7,7 @@ import java.util.Scanner;
 
 public class CricketControllerr {
 
-    private CricketDAO dao = new CricketDAO();
+    private PlayerDao dao = new PlayerDao();
     private Scanner sc = new Scanner(System.in);
 
     public void start() {

@@ -1,4 +1,4 @@
-import controller.CricketControllerr;
+import Controller.CricketControllerr;
 
 public class Main {
 
